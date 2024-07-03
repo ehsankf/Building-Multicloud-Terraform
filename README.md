@@ -9,6 +9,8 @@ mkdir -p ~/.aws/
 ```
 touch ~/.aws/credentials_multiclouddeploy
 ```
+Creating the Access Key for the terraform-en-1 user using the IAM service and rename it as `key.csv` and upload it to GCP
+
 ```
 ./aws_set_credentials.sh key.csv
 ```
