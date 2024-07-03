@@ -3,3 +3,101 @@
 python3 -m fastchat.serve.model_worker --model-path lmsys/vicuna-7b-v1.5
 ```
 Wait until the process finishes loading the model and you see "Uvicorn running on ...". The model worker will register itself to the controller .
+
+chmod +x *.sh
+
+```
+mkdir -p ~/.aws/
+
+```
+
+```
+touch ~/.aws/credentials_multiclouddeploy
+
+```
+
+```
+./aws_set_credentials.sh key.csv
+
+```
+
+```
+GOOGLE_CLOUD_PROJECT_ID=$(gcloud config get-value project)
+
+```
+
+```
+gcloud config set project $GOOGLE_CLOUD_PROJECT_ID
+
+```
+
+Execute the commands below to prepare the AWS and GCP environment
+
+```bash
+mkdir -p ~/.aws/
+```
+​
+```bash
+touch ~/.aws/credentials_multiclouddeploy
+```
+​
+./aws_set_credentials.sh key.csv
+```
+​
+```bash
+GOOGLE_CLOUD_PROJECT_ID=$(gcloud config get-value project)
+```
+​
+```bash
+gcloud config set project $GOOGLE_CLOUD_PROJECT_ID
+./gcp_set_project.sh
+```
+
+```bash
+gcloud services enable containerregistry.googleapis.com
+
+```
+
+```
+gcloud services enable container.googleapis.com
+
+```
+
+```
+gcloud services enable sqladmin.googleapis.com
+
+```
+
+```
+gcloud services enable cloudresourcemanager.googleapis.com
+
+```
+
+```
+gcloud services enable serviceusage.googleapis.com
+```
+
+```
+gcloud services enable compute.googleapis.com
+```
+
+```
+gcloud services enable servicenetworking.googleapis.com --project=$GOOGLE_CLOUD_PROJECT_ID
+```
+
+#### Running Terraform to provision MultiCloud infrastructure in AWS and Google Cloud
+Execute the following commands to provision infrastructure resources
+
+```bash
+cd ~/mission1/en/terraform/
+```
+​
+```bash
+terraform init
+```
+​
+```bash
+terraform plan
+```
+​
+terraform apply
