@@ -22,7 +22,7 @@ gcloud config set project $GOOGLE_CLOUD_PROJECT_ID
 ```
 
 ```bash
-$mkdir -p ~/.aws/
+mkdir -p ~/.aws/
 ```
 ```bash
 touch ~/.aws/credentials_multiclouddeploy
