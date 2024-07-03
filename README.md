@@ -90,13 +90,12 @@ Execute the following commands to provision infrastructure resources
 ```bash
 cd ~/mission1/en/terraform/
 ```
-​
 ```bash
 terraform init
 ```
-​
 ```bash
 terraform plan
 ```
-​
+```bash
 terraform apply
+```
