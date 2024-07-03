@@ -1,4 +1,4 @@
-# Setting up AWS and GCP environemnt
+#### Setting up AWS and GCP environemnt
 Execute the commands below to prepare the AWS and GCP environment
 ```bash
 chmod +x *.sh
