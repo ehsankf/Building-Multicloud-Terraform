@@ -2,27 +2,21 @@
 Execute the commands below to prepare the AWS and GCP environment
 ```bash
 chmod +x *.sh
-
 ```
 ```bash
 mkdir -p ~/.aws/
-
 ```
 ```
 touch ~/.aws/credentials_multiclouddeploy
-
 ```
 ```
 ./aws_set_credentials.sh key.csv
-
 ```
 ```
 GOOGLE_CLOUD_PROJECT_ID=$(gcloud config get-value project)
-
 ```
 ```
 gcloud config set project $GOOGLE_CLOUD_PROJECT_ID
-
 ```
 
 ```bash
@@ -49,19 +43,15 @@ gcloud config set project $GOOGLE_CLOUD_PROJECT_ID
 Execute the commands to enable the Kubernetes, Container Registry, and Cloud SQL APIs
 ```bash
 gcloud services enable containerregistry.googleapis.com
-
 ```
 ```
 gcloud services enable container.googleapis.com
-
 ```
 ```
 gcloud services enable sqladmin.googleapis.com
-
 ```
 ```
 gcloud services enable cloudresourcemanager.googleapis.com
-
 ```
 ```
 gcloud services enable serviceusage.googleapis.com
