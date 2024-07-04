@@ -119,7 +119,7 @@ gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT_ID/luxxy-covid-testing-s
 ```
 #### Deploy application on GKE (Google Kubernetes Engine) cluster 
 Open the Cloud Editor and edit the Kubernetes deployment file `(*.yaml)` and update the variables with your 
-- <PROJECT_ID> on the Google Container Registry path
+- `<PROJECT_ID>` on the Google Container Registry path
 - AWS Bucket name, AWS Keys (open file access key cvs file and use Access key ID and Secret access key)  
 - Cloud SQL Database Private IP.
 
