@@ -107,6 +107,16 @@ cd application/app
 ```
 gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT_ID/luxxy-covid-testing-system-app-en
 ```
+#### Build the Docker image and push it to Google Container Registry
+```
+GOOGLE_CLOUD_PROJECT_ID=$(gcloud config get-value project)
+```
+```
+cd application/app
+```
+```
+gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT_ID/luxxy-covid-testing-system-app-en
+```
 #### Deploy application on GKE (Google Kubernetes Engine) cluster 
 Open the Cloud Editor and edit the Kubernetes deployment file `(*.yaml)` and update the variables with your 
 - <PROJECT_ID> on the Google Container Registry path
