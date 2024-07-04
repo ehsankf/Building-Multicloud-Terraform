@@ -80,3 +80,55 @@ terraform plan
 ```bash
 terraform apply
 ```
+#### Connect to MySQL DB running on Cloud SQL 
+```
+mysql --host=**<replace_with_public_ip_cloudsql>** --port=3306 -u app -p
+```
+Once you're connected to the database instance, create the products table for testing purposes
+```
+use dbcovidtesting;
+```
+```
+source ~/application/db/create_table.sql
+```
+```
+show tables;
+```
+```
+exit;
+```
+Enable Cloud Build API via Cloud Shell.
+```
+GOOGLE_CLOUD_PROJECT_ID=$(gcloud config get-value project)
+```
+```
+cd application/app
+```
+```
+gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT_ID/luxxy-covid-testing-system-app-en
+```
+
+cd application/kubernetes/
+luxxy-covid-testing-system.yaml
+
+				image: gcr.io/<PROJECT_ID>/luxxy-covid-testing-system-app-en:latest
+...
+				- name: AWS_BUCKET
+          value: "luxxy-covid-testing-system-pdf-en-xxxx"
+        - name: S3_ACCESS_KEY
+          value: "xxxxxxxxxxxxxxxxxxxxx"
+        - name: S3_SECRET_ACCESS_KEY
+          value: "xxxxxxxxxxxxxxxxxxxx"
+        - name: DB_HOST_NAME
+          value: "172.21.0.3"
+
+Connect to the GKE (Google Kubernetes Engine) cluster via Console
+
+Deploy the application Luxxy in the Cluster
+```
+cd application/kubernetes
+```
+```
+kubectl apply -f luxxy-covid-testing-system.yaml
+```
+
