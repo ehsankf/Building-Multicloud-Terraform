@@ -150,9 +150,10 @@ kubectl apply -f *.yaml
 ```
 
 #### Database Migration
+
 - Connect to Google Cloud Shell
 - **Download** the dump using wget
-Connect to MySQL DB running on Cloud SQL 
+- Connect to MySQL DB running on Cloud SQL 
 ```
 mysql --host=**<replace_with_public_ip_cloudsql>** --port=3306 -u app -p
 ```
