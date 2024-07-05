@@ -149,3 +149,40 @@ cd application/kubernetes
 kubectl apply -f *.yaml
 ```
 
+#### Database Migration
+- Connect to Google Cloud Shell
+- **Download** the dump using wget
+Connect to MySQL DB running on Cloud SQL 
+```
+mysql --host=**<replace_with_public_ip_cloudsql>** --port=3306 -u app -p
+```
+Import the dump on Cloud SQL
+```
+use dbcovidtesting;
+```
+```
+source dump/db/db_dump.sql
+```
+Check if the data got imported correctly
+```
+select * from records;
+```
+```
+exit;
+```
+#### Sync PDF Files with your AWS S3
+Connect to the AWS Cloud Shell and sync your data with s3 bucket
+```
+aws s3 sync . s3://**link to s3 bucket**
+```
+#### Destroying the environment permanently
+- Destroy the deployment
+```json
+kubectl delete deployment luxxy-covid-testing-system
+```
+- Destroy the cluster
+```json
+kubectl delete service luxxy-covid-testing-system
+``` 
+
+
