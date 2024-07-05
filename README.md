@@ -177,11 +177,11 @@ aws s3 sync . s3://**link to s3 bucket**
 ```
 #### Destroying the environment permanently
 - Destroy the deployment
-```json
+```bash
 kubectl delete deployment luxxy-covid-testing-system
 ```
 - Destroy the cluster
-```json
+```bash
 kubectl delete service luxxy-covid-testing-system
 ``` 
 
